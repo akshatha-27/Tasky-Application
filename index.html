@@ -18,7 +18,7 @@
     />
   </head>
 
-  <body>
+  <body onload="loadInitialData()">
     <!-- Btn on small screen size -->
     <div class="add_new_btn_mbl_only d-none d-sm-block d-md-block d-lg-none">
       <button
@@ -51,7 +51,7 @@
             ></button>
           </div>
           <div class="modal-body">
-            <form>
+            <form onsubmit="return false">
               <!-- img -->
               <div class="mb-3">
                 <label for="imageUrl" class="form-label">Image URL</label>
@@ -69,11 +69,11 @@
 
               <!-- title -->
               <div class="mb-3">
-                <label for="tasktitle" class="form-label">Task Title</label>
+                <label for="taskTitle" class="form-label">Task Title</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="tasktitle"
+                  id="taskTitle"
                   placeholder="Task Title"
                   required
                 />
@@ -115,7 +115,13 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="handleSubmit()"
+            >
+              Save changes
+            </button>
           </div>
         </div>
       </div>
@@ -160,7 +166,7 @@
     <!-- Nav bar -->
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">JS-Build</a>
+        <a class="navbar-brand" href="#">Tasky Application</a>
         <button
           class="navbar-toggler"
           type="button"
