@@ -191,8 +191,12 @@ const deleteTask = (e) => {
 
   const targetId = e.target.getAttribute("name");
   const type = e.target.tagName;
-  const removeTask = state.taskList.filter(({ id }) => id !== targetId);
+  //const removeTask = state.taskList.filter(({ id }) => id !== targetId);
+  state.taskList = state.taskList.filter(({ id }) => id !== targetId);
   updateLocalStorage();
+
+  const taskElement = document.getElementById(targetId);
+  taskElement.parentNode.removeChild(taskElement);
 
   if (type == "BUTTON") {
     return e.target.parentNode.parentNode.parentNode.parentNode.removeChild(
